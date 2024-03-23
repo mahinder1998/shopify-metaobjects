@@ -1,0 +1,35 @@
+
+
+
+
+<div class="h-screen grid place-items-center">
+    <div class="max-w-[1024px] mx-auto grid grid-cols-3 gap-4">
+
+    {% for creator in shop.metaobjects.creator.values %}
+         <!-- items -->
+            <div class="border border-[#ddd] p-4">
+                <div class="w-20 h-20 rounded-full ">
+                   {{ creator.photo |  img_tag  }}
+                </div>
+                <h2 class="font-bold">{{creator.name}}</h2>
+                <p>{{creator.bio}}</p>                 
+
+                <!-- product created -->
+                <div class="mt-4 grid grid-cols-2">
+                {% for product in creator.creater_of.value %}
+                    <div>
+                        <a href="{{product.url}}">
+                            {{product.featured_image | img_tag}}
+                            <p>product title</p>
+                        </a>
+                    </div>
+                {%endfor%}
+                </div>
+            </div>
+    {%endfor%}
+   
+
+
+</div>
+
+</div>
