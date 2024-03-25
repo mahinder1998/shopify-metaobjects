@@ -1,11 +1,16 @@
 
+{% comment %} {% assign creators = shop.metaobjects.creator.values %}
 
+{% if template contains 'product' %}
+    {% assign creators = product.metafields.custom.creators.value %}
+{%endif%}
 
 
 <div class="h-screen grid place-items-center">
+
     <div class="max-w-[1024px] mx-auto grid grid-cols-3 gap-4">
 
-    {% for creator in shop.metaobjects.creator.values %}
+    {% for creator in creators %}
          <!-- items -->
             <div class="border border-[#ddd] p-4">
                 <div class="w-20 h-20 rounded-full ">
@@ -20,7 +25,44 @@
                     <div>
                         <a href="{{product.url}}">
                             {{product.featured_image | img_tag}}
-                            <p>product title</p>
+                            <p>{{product.title}}</p>
+                        </a>
+                    </div>
+                {%endfor%}
+                </div>
+            </div>
+    {%endfor%}
+   
+
+
+</div>
+
+</div> {% endcomment %}
+
+
+
+{% comment %} Method-2 regarding blocks {% endcomment %}
+
+<div class="h-screen grid place-items-center">
+
+    <div class="max-w-[1024px] mx-auto grid grid-cols-3 gap-4">
+
+    {% for block in section.blocks %}
+         <!-- items -->
+            <div class="border border-[#ddd] p-4">
+                <div class="w-20 h-20 rounded-full ">
+                   {{ block.settings.photo |  img_tag  }}
+                </div>
+                <h2 class="font-bold">{{block.settings.name}}</h2>
+                <p>{{block.settings.bio}}</p>                 
+
+                <!-- product created -->
+                <div class="mt-4 grid grid-cols-2">
+                {% for product in block.settings.creater_of %}
+                    <div>
+                        <a href="{{product.url}}">
+                            {{product.featured_image | img_tag}}
+                            <p>{{product.title}}</p>
                         </a>
                     </div>
                 {%endfor%}
@@ -33,3 +75,41 @@
 </div>
 
 </div>
+
+
+
+{% schema %}
+{
+    "name": "Creators",
+    "settings": [],
+    "blocks": [
+        {
+            "type": "creator",
+            "name": "creator",
+            "settings":[
+                {
+                    "type": "image_picker",
+                    "id": "photo",
+                    "label": "Photo"
+                },
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Name"
+                },
+                {
+                    "type": "richtext",
+                    "id": "bio",
+                    "label": "Bio"
+                },
+                {
+                    "type": "product_list",
+                    "id": "creator_of",
+                    "label": "List of products created"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}
