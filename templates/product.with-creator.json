@@ -1,10 +1,27 @@
 {
-    "sections": {
-        "createrod":{
-            "type": "creater"
+  "sections": {
+    "createrod": {
+      "type": "creater",
+      "blocks": {
+        "creator_WBjC9P": {
+          "type": "creator",
+          "repeater": "{{ product.metafields.custom.creators.value }}",
+          "settings": {
+            "photo": "{{ block.repeater.photo.value }}",
+            "name": "{{ block.repeater.name.value }}",
+            "bio": "{{ block.repeater.bio | metafield_tag }}",
+            "creator_of": "{{ block.repeater.creater_of.value }}"
+          }
         }
-    },
-    "order": [
-        "createrod"
-    ]
+      },
+      "block_order": [
+        "creator_WBjC9P"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "createrod"
+  ]
 }
