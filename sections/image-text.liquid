@@ -1,4 +1,4 @@
-<div class="image-text">
+{% comment %} <div class="image-text">
   {% assign items = product.metafields.custom.image_with_text.value %}
 
   {% for item in items %}
@@ -10,12 +10,46 @@
   </div>
   {% endfor %}
   
-</div>
+</div> {% endcomment %}
 
 {% schema %}
   {
     "name": "Image text",
     "settings": [],
+    "blocks": [
+      {
+        "type": "image_with_text",
+        "name": "image_with_text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "title"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "text"
+          },
+          {
+            "type": "text",
+            "id": "button",
+            "label": "button"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "button url"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+          
+        ]
+      }
+    ],
     "presets": [
       {
         "name": "Image text"
