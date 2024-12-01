@@ -12,6 +12,17 @@
   
 </div> {% endcomment %}
 
+
+{% for block in section.blocks %}
+  <div class="meta-objects">
+    <h1>{{block.title}}</h1>
+    <p>{{block.text}}</p>
+    <a href="{{block.button_url}}">{{block.button}}</a>
+    <img src="{{block.image | img_url:''}}">
+  </div>
+{% endfor %}
+
+
 {% schema %}
   {
     "name": "Image text",
