@@ -30,6 +30,22 @@
     },
     "image_text_DhEz8P": {
       "type": "image-text",
+      "blocks": {
+        "image_with_text_eykFkj": {
+          "type": "image_with_text",
+          "repeater": "{{ product.metafields.custom.image_with_text.value }}",
+          "settings": {
+            "title": "{{ block.repeater.title.value }}",
+            "text": "{{ block.repeater.text | metafield_tag }}",
+            "button": "{{ block.repeater.button.value }}",
+            "button_url": "{{ block.repeater.button_url.value }}",
+            "image": "{{ block.repeater.image.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_eykFkj"
+      ],
       "settings": {}
     }
   },
