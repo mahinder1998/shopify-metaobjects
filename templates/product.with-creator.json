@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "createrod": {
@@ -17,11 +26,15 @@
       "block_order": [
         "creator_WBjC9P"
       ],
-      "settings": {
-      }
+      "settings": {}
+    },
+    "image_text_DhEz8P": {
+      "type": "image-text",
+      "settings": {}
     }
   },
   "order": [
-    "createrod"
+    "createrod",
+    "image_text_DhEz8P"
   ]
 }
